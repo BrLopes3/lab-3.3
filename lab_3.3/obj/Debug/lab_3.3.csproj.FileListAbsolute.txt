@@ -1,0 +1,8 @@
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\obj\Debug\lab_3.3.csproj.AssemblyReference.cache
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\obj\Debug\lab_3.3.csproj.SuggestedBindingRedirects.cache
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\obj\Debug\lab_3.3.csproj.CoreCompileInputs.cache
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\bin\Debug\lab_3.3.exe.config
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\bin\Debug\lab_3.3.exe
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\bin\Debug\lab_3.3.pdb
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\obj\Debug\lab_3.3.exe
+C:\Users\brlop\source\repos\lab_3.3\lab_3.3\obj\Debug\lab_3.3.pdb
