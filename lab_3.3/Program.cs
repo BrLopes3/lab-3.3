@@ -8,36 +8,19 @@ namespace lab_3._3
 {
     public struct Person //creation of struct person
     {
-        public string first_name; //{ get; set; }
-        public string last_name; //{ get; set; }
-        public sbyte per_age; //{ get; set; }
-
-       /* public Person(string f_name, string l_name, sbyte age)
-        {
-            first_name = f_name;
-            last_name = l_name;
-            per_age = age;
-        }*/
+        public string first_name; 
+        public string last_name; 
+        public sbyte per_age; 
 
     }
 
     public struct Student //creation of struct student
     {
         public Person st_data;
-        public uint stud_id; //{ get; set; }
-        public string college_name; //{ get; set; }
-        public string city_name; //{ get; set; }
-        public string col_address; //{ get; set; }
-
-        /*public Student(Person data, uint id, string col_name, string city, string add)
-        {
-            st_data = data;
-            stud_id = id;
-            college_name = col_name;
-            city_name = city;
-            col_address = add;
-        }*/
-        
+        public uint stud_id; 
+        public string college_name; 
+        public string city_name; 
+        public string col_address; 
         
     }
 
@@ -62,16 +45,20 @@ namespace lab_3._3
             List<Student> stdlist = new List<Student>(); //creating the list of students type Student
             var st = new Student();
             student[0] = student1; //including the student 1 in the array of students
-            int counter = 1;
+            int countArray = 1;
+            int countList = 0;
+            int totalCount = countArray + countList;
             int opt = 0;
 
             do
             { //menu with options
 
             label0:
-                Console.WriteLine("\n---------------------\n" + counter + " students registered");
+                Console.WriteLine("\n---------------------\n" + countArray + " students registered in the Array");
+                Console.WriteLine("\n---------------------\n" + countList + " students registered in the List");
+                Console.WriteLine("\n---------------------\nTotal of students registered: " + totalCount);
                 Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------------\n");
-                Console.WriteLine("Enter with the option\n1) Add a student in the Array\n2) Add a student in the List\n3) Display the information from the Array\n4) Display the information from the List\n5) quit the application");
+                Console.WriteLine("Enter with the option\n1) Add a student in the Array\n2) Add a student in the List\n3) Display the students from the Array\n4) Display the students from the List\n5) quit the application");
                 Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------------\n");
                 try
                 {
@@ -79,7 +66,7 @@ namespace lab_3._3
                     Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------------\n");
                     if (opt < 1 || opt > 5)
                     {
-                        Console.WriteLine("Enter with one of the options numers 1, 2 or 3");
+                        Console.WriteLine("Enter with one of the options numers 1, 2, 3, 4 or 5");
                         goto label0;
                     }
 
@@ -96,24 +83,24 @@ namespace lab_3._3
                     case 1:
                         {
 
-                            if (counter < student.Length)
+                            if (countArray < student.Length)
                             {
                                 Console.WriteLine("Enter with information of student:");
 
                                 Console.Write("First Name: ");
 
-                                student[counter].st_data.first_name = Console.ReadLine();
+                                student[countArray].st_data.first_name = Console.ReadLine();
 
                                 Console.Write("Last Name: ");
 
-                                student[counter].st_data.last_name = Console.ReadLine();
+                                student[countArray].st_data.last_name = Console.ReadLine();
 
                             label1:
                                 Console.Write("Age: ");
                                 try
                                 {
-                                    student[counter].st_data.per_age = Convert.ToSByte(Console.ReadLine());
-                                    if (student[counter].st_data.per_age < 18 || student[counter].st_data.per_age > 65)
+                                    student[countArray].st_data.per_age = Convert.ToSByte(Console.ReadLine());
+                                    if (student[countArray].st_data.per_age < 18 || student[countArray].st_data.per_age > 65)
                                     {
                                         Console.WriteLine("Enter with a valid age (between 18 and 65)");
                                         goto label1;
@@ -125,11 +112,11 @@ namespace lab_3._3
                                     Console.WriteLine(ex3.Message + "Enter with a valid age");
                                     goto label1;
                                 }
-                            label2: // 
+                            label2: 
                                 Console.Write("Student ID: ");
                                 try
                                 {
-                                    student[counter].stud_id = Convert.ToUInt32(Console.ReadLine());
+                                    student[countArray].stud_id = Convert.ToUInt32(Console.ReadLine());
 
                                 }
                                 catch (Exception ex4)
@@ -140,19 +127,19 @@ namespace lab_3._3
 
                                 Console.Write("College Name: ");
 
-                                student[counter].college_name = Console.ReadLine();
+                                student[countArray].college_name = Console.ReadLine();
 
 
                                 Console.Write("City: ");
 
-                                student[counter].city_name = Console.ReadLine();
+                                student[countArray].city_name = Console.ReadLine();
 
                                 Console.Write("Address: ");
 
-                                student[counter].col_address = Console.ReadLine();
+                                student[countArray].col_address = Console.ReadLine();
 
-                                counter++;
-
+                                countArray++;
+                                totalCount++;
                             }
                             else
                             {
@@ -215,7 +202,8 @@ namespace lab_3._3
 
                             st.col_address = Console.ReadLine();
 
-                            counter++;
+                            countList++;
+                            totalCount++;
 
                             stdlist.Add(st);
                             
@@ -242,11 +230,11 @@ namespace lab_3._3
                         {
                             foreach(Student i in stdlist)
                             {
-                                Console.WriteLine($"{i.st_data.first_name,-5} {i.st_data.last_name,-5}, {i.st_data.per_age,5} years old.\nStudent ID: {i.stud_id,5}, study at {i.college_name,-5}, City: {i.city_name,-5}, Address: {i.col_address,-5}");
+                                Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------------\n");
+                                Console.WriteLine($"STUDENT {countList}: {i.st_data.first_name,-5} {i.st_data.last_name,-5}, {i.st_data.per_age,5} years old.\nStudent ID: {i.stud_id,5}, study at {i.college_name,-5}, City: {i.city_name,-5}, Address: {i.col_address,-5}");
                             }
                             break;
                         }
-
 
                     case 5:
                         {
